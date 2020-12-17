@@ -19,8 +19,8 @@ var controllers = {
   },
   courses: function (req, res) {
     var aboutInfo = {
-      name: properties.name,
-      version: properties.version,
+      name: "DevCorps courses service",
+      version: "1.0.0",
     };
     res.json(aboutInfo);
   },
