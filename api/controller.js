@@ -17,6 +17,13 @@ var controllers = {
       res.json(dist);
     });
   },
+  courses: function (req, res) {
+    var aboutInfo = {
+      name: properties.name,
+      version: properties.version,
+    };
+    res.json(aboutInfo);
+  },
 };
 
 module.exports = controllers;
