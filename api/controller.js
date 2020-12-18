@@ -2,6 +2,7 @@
 
 var properties = require("../package.json");
 var distance = require("../service/distance");
+var courses = require("../service/courses");
 
 var controllers = {
   about: function (req, res) {
