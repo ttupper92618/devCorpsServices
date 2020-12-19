@@ -47,6 +47,50 @@ app.get("/course_sections", (req, res) => {
   });
 });
 
+app.get("/video_downloads", (req, res) => {
+  let sql = "SELECT * from download_videos";
+  let query = db.query(sql, (err, results) => {
+    if (err) {
+      res.send("failed /video_downloads db select: " + err);
+      throw err;
+    }
+    res.send(results);
+  });
+});
+
+app.get("/figma_downloads", (req, res) => {
+  let sql = "SELECT * from download_figma";
+  let query = db.query(sql, (err, results) => {
+    if (err) {
+      res.send("failed /figma_downloads db select: " + err);
+      throw err;
+    }
+    res.send(results);
+  });
+});
+
+app.get("/livestreams", (req, res) => {
+  let sql = "SELECT * from livestreams";
+  let query = db.query(sql, (err, results) => {
+    if (err) {
+      res.send("failed /livestreams db select: " + err);
+      throw err;
+    }
+    res.send(results);
+  });
+});
+
+app.get("/tutorials", (req, res) => {
+  let sql = "SELECT * from tutorials";
+  let query = db.query(sql, (err, results) => {
+    if (err) {
+      res.send("failed /tutorials db select: " + err);
+      throw err;
+    }
+    res.send(results);
+  });
+});
+
 //const routes = require("./api/routes");
 //routes(app);
 app.listen(3000, function () {
