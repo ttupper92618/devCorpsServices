@@ -38,6 +38,17 @@ app.get("/courses", (req, res) => {
   });
 });
 
+app.get("/course_sections", (req, res) => {
+  const courseId = req.body.courseId;
+  let sql = "SELECT * from course_sections WHERE courseId=" + courseId;
+  let query = db.query(sql, (err, results) => {
+    if (err) {
+      throw err;
+    }
+    res.send(results);
+  });
+});
+
 //const routes = require("./api/routes");
 //routes(app);
 app.listen(port, function () {
