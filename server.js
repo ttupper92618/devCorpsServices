@@ -39,10 +39,11 @@ app.get("/courses", (req, res) => {
 });
 
 app.get("/course_sections", (req, res) => {
-  const courseId = req.body.courseId;
-  let sql = "SELECT * from course_sections WHERE courseId=" + courseId;
-  let query = db.query(sql, (err, results) => {
+  const courseId = req.query.courseid;
+  let sql = "SELECT * from course_sections WHERE courseId = ?";
+  let query = db.query(sql, courseId, (err, results) => {
     if (err) {
+      res.send("failed for courseId: " + courseId);
       throw err;
     }
     res.send(results);
